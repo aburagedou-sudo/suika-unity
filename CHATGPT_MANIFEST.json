@@ -1,0 +1,1784 @@
+{
+  "assets": [
+    {
+      "key": "assets/aoi.jpg",
+      "resources": "assets/aoi"
+    },
+    {
+      "key": "assets/aoi_no1113.jpg",
+      "resources": "assets/aoi_no1113"
+    },
+    {
+      "key": "assets/aoi_no1115.jpg",
+      "resources": "assets/aoi_no1115"
+    },
+    {
+      "key": "assets/ayame_m1105.jpg",
+      "resources": "assets/ayame_m1105"
+    },
+    {
+      "key": "assets/ayame_m1117.jpg",
+      "resources": "assets/ayame_m1117"
+    },
+    {
+      "key": "assets/ayame_n1104.jpg",
+      "resources": "assets/ayame_n1104"
+    },
+    {
+      "key": "assets/ayame_no1105.jpg",
+      "resources": "assets/ayame_no1105"
+    },
+    {
+      "key": "assets/ayame_no1107.jpg",
+      "resources": "assets/ayame_no1107"
+    },
+    {
+      "key": "assets/bgm_battle.mp3",
+      "resources": "assets/bgm_battle"
+    },
+    {
+      "key": "assets/bolt_m1114.jpg",
+      "resources": "assets/bolt_m1114"
+    },
+    {
+      "key": "assets/bolt_m1115.jpg",
+      "resources": "assets/bolt_m1115"
+    },
+    {
+      "key": "assets/frost_n1113.jpg",
+      "resources": "assets/frost_n1113"
+    },
+    {
+      "key": "assets/frost_no1108.jpg",
+      "resources": "assets/frost_no1108"
+    },
+    {
+      "key": "assets/hinata.jpg",
+      "resources": "assets/hinata"
+    },
+    {
+      "key": "assets/hinata_m1107.jpg",
+      "resources": "assets/hinata_m1107"
+    },
+    {
+      "key": "assets/hinata_n1105.jpg",
+      "resources": "assets/hinata_n1105"
+    },
+    {
+      "key": "assets/hinata_n1106.jpg",
+      "resources": "assets/hinata_n1106"
+    },
+    {
+      "key": "assets/kagura.jpg",
+      "resources": "assets/kagura"
+    },
+    {
+      "key": "assets/kagura_m1113.jpg",
+      "resources": "assets/kagura_m1113"
+    },
+    {
+      "key": "assets/kagura_n1110.jpg",
+      "resources": "assets/kagura_n1110"
+    },
+    {
+      "key": "assets/kaiju_amoeba.png",
+      "resources": "assets/kaiju_amoeba"
+    },
+    {
+      "key": "assets/kaiju_egg.png",
+      "resources": "assets/kaiju_egg"
+    },
+    {
+      "key": "assets/kaiju_insect.png",
+      "resources": "assets/kaiju_insect"
+    },
+    {
+      "key": "assets/kaiju_lava.png",
+      "resources": "assets/kaiju_lava"
+    },
+    {
+      "key": "assets/kaiju_mouth.png",
+      "resources": "assets/kaiju_mouth"
+    },
+    {
+      "key": "assets/kaiju_octo.png",
+      "resources": "assets/kaiju_octo"
+    },
+    {
+      "key": "assets/kaiju_planet.png",
+      "resources": "assets/kaiju_planet"
+    },
+    {
+      "key": "assets/kaiju_rockeye.png",
+      "resources": "assets/kaiju_rockeye"
+    },
+    {
+      "key": "assets/kaiju_spiky.png",
+      "resources": "assets/kaiju_spiky"
+    },
+    {
+      "key": "assets/kaiju_sun.png",
+      "resources": "assets/kaiju_sun"
+    },
+    {
+      "key": "assets/kaiju_swirl.png",
+      "resources": "assets/kaiju_swirl"
+    },
+    {
+      "key": "assets/kikyo_n1109.jpg",
+      "resources": "assets/kikyo_n1109"
+    },
+    {
+      "key": "assets/kikyo_no1109.jpg",
+      "resources": "assets/kikyo_no1109"
+    },
+    {
+      "key": "assets/kikyo_no1114.jpg",
+      "resources": "assets/kikyo_no1114"
+    },
+    {
+      "key": "assets/kikyo_no1116.jpg",
+      "resources": "assets/kikyo_no1116"
+    },
+    {
+      "key": "assets/kohaku.jpg",
+      "resources": "assets/kohaku"
+    },
+    {
+      "key": "assets/kohaku_cap.jpg",
+      "resources": "assets/kohaku_cap"
+    },
+    {
+      "key": "assets/kohaku_no1110.jpg",
+      "resources": "assets/kohaku_no1110"
+    },
+    {
+      "key": "assets/leona_lose.jpg",
+      "resources": "assets/leona_lose"
+    },
+    {
+      "key": "assets/leona_m1116.jpg",
+      "resources": "assets/leona_m1116"
+    },
+    {
+      "key": "assets/leona_n1111.jpg",
+      "resources": "assets/leona_n1111"
+    },
+    {
+      "key": "assets/lumina.jpg",
+      "resources": "assets/lumina"
+    },
+    {
+      "key": "assets/lumina_m1108.jpg",
+      "resources": "assets/lumina_m1108"
+    },
+    {
+      "key": "assets/lumina_m1109.jpg",
+      "resources": "assets/lumina_m1109"
+    },
+    {
+      "key": "assets/mecha01_down.png",
+      "resources": "assets/mecha01_down"
+    },
+    {
+      "key": "assets/mecha01_heavy.png",
+      "resources": "assets/mecha01_heavy"
+    },
+    {
+      "key": "assets/mecha01_mid.png",
+      "resources": "assets/mecha01_mid"
+    },
+    {
+      "key": "assets/mecha01_normal.png",
+      "resources": "assets/mecha01_normal"
+    },
+    {
+      "key": "assets/mecha02_down.png",
+      "resources": "assets/mecha02_down"
+    },
+    {
+      "key": "assets/mecha02_heavy.png",
+      "resources": "assets/mecha02_heavy"
+    },
+    {
+      "key": "assets/mecha02_mid.png",
+      "resources": "assets/mecha02_mid"
+    },
+    {
+      "key": "assets/mecha02_normal.png",
+      "resources": "assets/mecha02_normal"
+    },
+    {
+      "key": "assets/mecha03_down.png",
+      "resources": "assets/mecha03_down"
+    },
+    {
+      "key": "assets/mecha03_heavy.png",
+      "resources": "assets/mecha03_heavy"
+    },
+    {
+      "key": "assets/mecha03_mid.png",
+      "resources": "assets/mecha03_mid"
+    },
+    {
+      "key": "assets/mecha03_normal.png",
+      "resources": "assets/mecha03_normal"
+    },
+    {
+      "key": "assets/mecha04_down.png",
+      "resources": "assets/mecha04_down"
+    },
+    {
+      "key": "assets/mecha04_heavy.png",
+      "resources": "assets/mecha04_heavy"
+    },
+    {
+      "key": "assets/mecha04_mid.png",
+      "resources": "assets/mecha04_mid"
+    },
+    {
+      "key": "assets/mecha04_normal.png",
+      "resources": "assets/mecha04_normal"
+    },
+    {
+      "key": "assets/mecha05_down.png",
+      "resources": "assets/mecha05_down"
+    },
+    {
+      "key": "assets/mecha05_heavy.png",
+      "resources": "assets/mecha05_heavy"
+    },
+    {
+      "key": "assets/mecha05_mid.png",
+      "resources": "assets/mecha05_mid"
+    },
+    {
+      "key": "assets/mecha05_normal.png",
+      "resources": "assets/mecha05_normal"
+    },
+    {
+      "key": "assets/mecha06_down.png",
+      "resources": "assets/mecha06_down"
+    },
+    {
+      "key": "assets/mecha06_heavy.png",
+      "resources": "assets/mecha06_heavy"
+    },
+    {
+      "key": "assets/mecha06_mid.png",
+      "resources": "assets/mecha06_mid"
+    },
+    {
+      "key": "assets/mecha06_normal.png",
+      "resources": "assets/mecha06_normal"
+    },
+    {
+      "key": "assets/mecha07_down.png",
+      "resources": "assets/mecha07_down"
+    },
+    {
+      "key": "assets/mecha07_heavy.png",
+      "resources": "assets/mecha07_heavy"
+    },
+    {
+      "key": "assets/mecha07_mid.png",
+      "resources": "assets/mecha07_mid"
+    },
+    {
+      "key": "assets/mecha07_normal.png",
+      "resources": "assets/mecha07_normal"
+    },
+    {
+      "key": "assets/mecha08_down.png",
+      "resources": "assets/mecha08_down"
+    },
+    {
+      "key": "assets/mecha08_heavy.png",
+      "resources": "assets/mecha08_heavy"
+    },
+    {
+      "key": "assets/mecha08_mid.png",
+      "resources": "assets/mecha08_mid"
+    },
+    {
+      "key": "assets/mecha08_normal.png",
+      "resources": "assets/mecha08_normal"
+    },
+    {
+      "key": "assets/mecha09_down.png",
+      "resources": "assets/mecha09_down"
+    },
+    {
+      "key": "assets/mecha09_heavy.png",
+      "resources": "assets/mecha09_heavy"
+    },
+    {
+      "key": "assets/mecha09_mid.png",
+      "resources": "assets/mecha09_mid"
+    },
+    {
+      "key": "assets/mecha09_normal.png",
+      "resources": "assets/mecha09_normal"
+    },
+    {
+      "key": "assets/mecha10_down.png",
+      "resources": "assets/mecha10_down"
+    },
+    {
+      "key": "assets/mecha10_heavy.png",
+      "resources": "assets/mecha10_heavy"
+    },
+    {
+      "key": "assets/mecha10_mid.png",
+      "resources": "assets/mecha10_mid"
+    },
+    {
+      "key": "assets/mecha10_normal.png",
+      "resources": "assets/mecha10_normal"
+    },
+    {
+      "key": "assets/midori.jpg",
+      "resources": "assets/midori"
+    },
+    {
+      "key": "assets/midori_cap.jpg",
+      "resources": "assets/midori_cap"
+    },
+    {
+      "key": "assets/midori_m1106.jpg",
+      "resources": "assets/midori_m1106"
+    },
+    {
+      "key": "assets/midori_n1107.jpg",
+      "resources": "assets/midori_n1107"
+    },
+    {
+      "key": "assets/midori_n1114.jpg",
+      "resources": "assets/midori_n1114"
+    },
+    {
+      "key": "assets/midori_no1112.jpg",
+      "resources": "assets/midori_no1112"
+    },
+    {
+      "key": "assets/momiji_m1112.jpg",
+      "resources": "assets/momiji_m1112"
+    },
+    {
+      "key": "assets/momiji_n1108.jpg",
+      "resources": "assets/momiji_n1108"
+    },
+    {
+      "key": "assets/ojama_purple_1.png",
+      "resources": "assets/ojama_purple_1"
+    },
+    {
+      "key": "assets/ojama_purple_2.png",
+      "resources": "assets/ojama_purple_2"
+    },
+    {
+      "key": "assets/ojama_purple_3.png",
+      "resources": "assets/ojama_purple_3"
+    },
+    {
+      "key": "assets/sakura.jpg",
+      "resources": "assets/sakura"
+    },
+    {
+      "key": "assets/sakura_lose.jpg",
+      "resources": "assets/sakura_lose"
+    },
+    {
+      "key": "assets/sakura_mid.jpg",
+      "resources": "assets/sakura_mid"
+    },
+    {
+      "key": "assets/sakura_no1111.jpg",
+      "resources": "assets/sakura_no1111"
+    },
+    {
+      "key": "assets/scenes/scene_char01_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char01_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char01_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char01_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_egg_after.jpg",
+      "resources": "assets/scenes/scene_char01_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char01_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_egg_start.jpg",
+      "resources": "assets/scenes/scene_char01_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_insect_after.jpg",
+      "resources": "assets/scenes/scene_char01_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char01_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_insect_start.jpg",
+      "resources": "assets/scenes/scene_char01_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_lava_after.jpg",
+      "resources": "assets/scenes/scene_char01_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char01_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_lava_start.jpg",
+      "resources": "assets/scenes/scene_char01_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char01_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char01_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char01_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_octo_after.jpg",
+      "resources": "assets/scenes/scene_char01_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char01_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_octo_start.jpg",
+      "resources": "assets/scenes/scene_char01_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_planet_after.jpg",
+      "resources": "assets/scenes/scene_char01_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char01_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_planet_start.jpg",
+      "resources": "assets/scenes/scene_char01_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char01_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char01_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char01_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char01_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char01_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char01_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_sun_after.jpg",
+      "resources": "assets/scenes/scene_char01_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char01_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_sun_start.jpg",
+      "resources": "assets/scenes/scene_char01_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char01_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char01_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char01_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char01_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char01_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char01_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char02_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char02_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char02_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_egg_after.jpg",
+      "resources": "assets/scenes/scene_char02_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char02_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_egg_start.jpg",
+      "resources": "assets/scenes/scene_char02_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_insect_after.jpg",
+      "resources": "assets/scenes/scene_char02_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char02_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_insect_start.jpg",
+      "resources": "assets/scenes/scene_char02_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_lava_after.jpg",
+      "resources": "assets/scenes/scene_char02_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char02_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_lava_start.jpg",
+      "resources": "assets/scenes/scene_char02_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char02_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char02_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char02_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_octo_after.jpg",
+      "resources": "assets/scenes/scene_char02_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char02_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_octo_start.jpg",
+      "resources": "assets/scenes/scene_char02_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_planet_after.jpg",
+      "resources": "assets/scenes/scene_char02_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char02_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_planet_start.jpg",
+      "resources": "assets/scenes/scene_char02_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char02_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char02_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char02_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char02_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char02_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char02_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_sun_after.jpg",
+      "resources": "assets/scenes/scene_char02_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char02_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_sun_start.jpg",
+      "resources": "assets/scenes/scene_char02_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char02_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char02_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char02_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char02_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char02_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char02_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char03_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char03_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char03_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_egg_after.jpg",
+      "resources": "assets/scenes/scene_char03_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char03_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_egg_start.jpg",
+      "resources": "assets/scenes/scene_char03_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_insect_after.jpg",
+      "resources": "assets/scenes/scene_char03_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char03_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_insect_start.jpg",
+      "resources": "assets/scenes/scene_char03_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_lava_after.jpg",
+      "resources": "assets/scenes/scene_char03_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char03_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_lava_start.jpg",
+      "resources": "assets/scenes/scene_char03_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char03_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char03_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char03_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_octo_after.jpg",
+      "resources": "assets/scenes/scene_char03_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char03_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_octo_start.jpg",
+      "resources": "assets/scenes/scene_char03_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_planet_after.jpg",
+      "resources": "assets/scenes/scene_char03_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char03_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_planet_start.jpg",
+      "resources": "assets/scenes/scene_char03_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char03_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char03_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char03_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char03_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char03_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char03_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_sun_after.jpg",
+      "resources": "assets/scenes/scene_char03_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char03_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_sun_start.jpg",
+      "resources": "assets/scenes/scene_char03_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char03_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char03_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char03_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char03_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char03_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char03_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char04_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char04_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char04_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_egg_after.jpg",
+      "resources": "assets/scenes/scene_char04_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char04_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_egg_start.jpg",
+      "resources": "assets/scenes/scene_char04_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_insect_after.jpg",
+      "resources": "assets/scenes/scene_char04_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char04_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_insect_start.jpg",
+      "resources": "assets/scenes/scene_char04_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_lava_after.jpg",
+      "resources": "assets/scenes/scene_char04_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char04_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_lava_start.jpg",
+      "resources": "assets/scenes/scene_char04_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char04_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char04_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char04_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_octo_after.jpg",
+      "resources": "assets/scenes/scene_char04_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char04_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_octo_start.jpg",
+      "resources": "assets/scenes/scene_char04_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_planet_after.jpg",
+      "resources": "assets/scenes/scene_char04_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char04_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_planet_start.jpg",
+      "resources": "assets/scenes/scene_char04_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char04_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char04_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char04_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char04_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char04_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char04_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_sun_after.jpg",
+      "resources": "assets/scenes/scene_char04_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char04_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_sun_start.jpg",
+      "resources": "assets/scenes/scene_char04_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char04_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char04_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char04_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char04_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char04_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char04_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char05_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char05_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char05_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_egg_after.jpg",
+      "resources": "assets/scenes/scene_char05_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char05_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_egg_start.jpg",
+      "resources": "assets/scenes/scene_char05_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_insect_after.jpg",
+      "resources": "assets/scenes/scene_char05_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char05_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_insect_start.jpg",
+      "resources": "assets/scenes/scene_char05_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_lava_after.jpg",
+      "resources": "assets/scenes/scene_char05_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char05_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_lava_start.jpg",
+      "resources": "assets/scenes/scene_char05_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char05_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char05_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char05_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_octo_after.jpg",
+      "resources": "assets/scenes/scene_char05_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char05_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_octo_start.jpg",
+      "resources": "assets/scenes/scene_char05_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_planet_after.jpg",
+      "resources": "assets/scenes/scene_char05_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char05_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_planet_start.jpg",
+      "resources": "assets/scenes/scene_char05_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char05_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char05_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char05_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char05_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char05_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char05_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_sun_after.jpg",
+      "resources": "assets/scenes/scene_char05_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char05_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_sun_start.jpg",
+      "resources": "assets/scenes/scene_char05_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char05_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char05_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char05_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char05_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char05_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char05_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char06_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char06_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char06_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_egg_after.jpg",
+      "resources": "assets/scenes/scene_char06_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char06_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_egg_start.jpg",
+      "resources": "assets/scenes/scene_char06_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_insect_after.jpg",
+      "resources": "assets/scenes/scene_char06_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char06_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_insect_start.jpg",
+      "resources": "assets/scenes/scene_char06_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_lava_after.jpg",
+      "resources": "assets/scenes/scene_char06_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char06_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_lava_start.jpg",
+      "resources": "assets/scenes/scene_char06_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char06_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char06_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char06_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_octo_after.jpg",
+      "resources": "assets/scenes/scene_char06_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char06_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_octo_start.jpg",
+      "resources": "assets/scenes/scene_char06_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_planet_after.jpg",
+      "resources": "assets/scenes/scene_char06_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char06_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_planet_start.jpg",
+      "resources": "assets/scenes/scene_char06_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char06_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char06_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char06_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char06_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char06_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char06_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_sun_after.jpg",
+      "resources": "assets/scenes/scene_char06_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char06_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_sun_start.jpg",
+      "resources": "assets/scenes/scene_char06_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char06_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char06_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char06_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char06_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char06_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char06_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char07_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char07_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char07_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_egg_after.jpg",
+      "resources": "assets/scenes/scene_char07_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char07_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_egg_start.jpg",
+      "resources": "assets/scenes/scene_char07_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_insect_after.jpg",
+      "resources": "assets/scenes/scene_char07_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char07_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_insect_start.jpg",
+      "resources": "assets/scenes/scene_char07_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_lava_after.jpg",
+      "resources": "assets/scenes/scene_char07_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char07_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_lava_start.jpg",
+      "resources": "assets/scenes/scene_char07_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char07_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char07_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char07_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_octo_after.jpg",
+      "resources": "assets/scenes/scene_char07_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char07_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_octo_start.jpg",
+      "resources": "assets/scenes/scene_char07_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_planet_after.jpg",
+      "resources": "assets/scenes/scene_char07_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char07_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_planet_start.jpg",
+      "resources": "assets/scenes/scene_char07_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char07_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char07_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char07_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char07_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char07_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char07_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_sun_after.jpg",
+      "resources": "assets/scenes/scene_char07_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char07_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_sun_start.jpg",
+      "resources": "assets/scenes/scene_char07_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char07_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char07_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char07_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char07_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char07_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char07_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char08_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char08_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char08_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_egg_after.jpg",
+      "resources": "assets/scenes/scene_char08_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char08_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_egg_start.jpg",
+      "resources": "assets/scenes/scene_char08_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_insect_after.jpg",
+      "resources": "assets/scenes/scene_char08_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char08_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_insect_start.jpg",
+      "resources": "assets/scenes/scene_char08_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_lava_after.jpg",
+      "resources": "assets/scenes/scene_char08_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char08_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_lava_start.jpg",
+      "resources": "assets/scenes/scene_char08_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char08_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char08_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char08_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_octo_after.jpg",
+      "resources": "assets/scenes/scene_char08_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char08_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_octo_start.jpg",
+      "resources": "assets/scenes/scene_char08_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_planet_after.jpg",
+      "resources": "assets/scenes/scene_char08_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char08_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_planet_start.jpg",
+      "resources": "assets/scenes/scene_char08_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char08_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char08_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char08_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char08_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char08_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char08_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_sun_after.jpg",
+      "resources": "assets/scenes/scene_char08_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char08_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_sun_start.jpg",
+      "resources": "assets/scenes/scene_char08_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char08_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char08_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char08_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char08_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char08_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char08_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char09_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char09_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char09_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_egg_after.jpg",
+      "resources": "assets/scenes/scene_char09_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char09_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_egg_start.jpg",
+      "resources": "assets/scenes/scene_char09_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_insect_after.jpg",
+      "resources": "assets/scenes/scene_char09_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char09_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_insect_start.jpg",
+      "resources": "assets/scenes/scene_char09_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_lava_after.jpg",
+      "resources": "assets/scenes/scene_char09_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char09_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_lava_start.jpg",
+      "resources": "assets/scenes/scene_char09_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char09_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char09_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char09_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_octo_after.jpg",
+      "resources": "assets/scenes/scene_char09_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char09_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_octo_start.jpg",
+      "resources": "assets/scenes/scene_char09_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_planet_after.jpg",
+      "resources": "assets/scenes/scene_char09_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char09_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_planet_start.jpg",
+      "resources": "assets/scenes/scene_char09_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char09_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char09_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char09_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char09_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char09_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char09_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_sun_after.jpg",
+      "resources": "assets/scenes/scene_char09_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char09_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_sun_start.jpg",
+      "resources": "assets/scenes/scene_char09_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char09_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char09_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char09_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char09_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char09_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char09_swirl_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_amoeba_after.jpg",
+      "resources": "assets/scenes/scene_char10_amoeba_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_amoeba_mid.jpg",
+      "resources": "assets/scenes/scene_char10_amoeba_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_amoeba_start.jpg",
+      "resources": "assets/scenes/scene_char10_amoeba_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_egg_after.jpg",
+      "resources": "assets/scenes/scene_char10_egg_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_egg_mid.jpg",
+      "resources": "assets/scenes/scene_char10_egg_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_egg_start.jpg",
+      "resources": "assets/scenes/scene_char10_egg_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_insect_after.jpg",
+      "resources": "assets/scenes/scene_char10_insect_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_insect_mid.jpg",
+      "resources": "assets/scenes/scene_char10_insect_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_insect_start.jpg",
+      "resources": "assets/scenes/scene_char10_insect_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_lava_after.jpg",
+      "resources": "assets/scenes/scene_char10_lava_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_lava_mid.jpg",
+      "resources": "assets/scenes/scene_char10_lava_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_lava_start.jpg",
+      "resources": "assets/scenes/scene_char10_lava_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_mouth_after.jpg",
+      "resources": "assets/scenes/scene_char10_mouth_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_mouth_mid.jpg",
+      "resources": "assets/scenes/scene_char10_mouth_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_mouth_start.jpg",
+      "resources": "assets/scenes/scene_char10_mouth_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_octo_after.jpg",
+      "resources": "assets/scenes/scene_char10_octo_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_octo_mid.jpg",
+      "resources": "assets/scenes/scene_char10_octo_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_octo_start.jpg",
+      "resources": "assets/scenes/scene_char10_octo_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_planet_after.jpg",
+      "resources": "assets/scenes/scene_char10_planet_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_planet_mid.jpg",
+      "resources": "assets/scenes/scene_char10_planet_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_planet_start.jpg",
+      "resources": "assets/scenes/scene_char10_planet_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_rockeye_after.jpg",
+      "resources": "assets/scenes/scene_char10_rockeye_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_rockeye_mid.jpg",
+      "resources": "assets/scenes/scene_char10_rockeye_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_rockeye_start.jpg",
+      "resources": "assets/scenes/scene_char10_rockeye_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_spiky_after.jpg",
+      "resources": "assets/scenes/scene_char10_spiky_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_spiky_mid.jpg",
+      "resources": "assets/scenes/scene_char10_spiky_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_spiky_start.jpg",
+      "resources": "assets/scenes/scene_char10_spiky_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_sun_after.jpg",
+      "resources": "assets/scenes/scene_char10_sun_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_sun_mid.jpg",
+      "resources": "assets/scenes/scene_char10_sun_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_sun_start.jpg",
+      "resources": "assets/scenes/scene_char10_sun_start"
+    },
+    {
+      "key": "assets/scenes/scene_char10_swirl_after.jpg",
+      "resources": "assets/scenes/scene_char10_swirl_after"
+    },
+    {
+      "key": "assets/scenes/scene_char10_swirl_mid.jpg",
+      "resources": "assets/scenes/scene_char10_swirl_mid"
+    },
+    {
+      "key": "assets/scenes/scene_char10_swirl_start.jpg",
+      "resources": "assets/scenes/scene_char10_swirl_start"
+    },
+    {
+      "key": "assets/se_drop.mp3",
+      "resources": "assets/se_drop"
+    },
+    {
+      "key": "assets/se_merge.mp3",
+      "resources": "assets/se_merge"
+    },
+    {
+      "key": "assets/selene_n1112.jpg",
+      "resources": "assets/selene_n1112"
+    },
+    {
+      "key": "assets/shizuku.jpg",
+      "resources": "assets/shizuku"
+    },
+    {
+      "key": "assets/shizuku_m1110.jpg",
+      "resources": "assets/shizuku_m1110"
+    },
+    {
+      "key": "assets/shizuku_n1116.jpg",
+      "resources": "assets/shizuku_n1116"
+    },
+    {
+      "key": "assets/stella.jpg",
+      "resources": "assets/stella"
+    },
+    {
+      "key": "assets/stella_m1111.jpg",
+      "resources": "assets/stella_m1111"
+    },
+    {
+      "key": "assets/stella_n1115.jpg",
+      "resources": "assets/stella_n1115"
+    },
+    {
+      "key": "assets/stella_no1117.jpg",
+      "resources": "assets/stella_no1117"
+    },
+    {
+      "key": "assets/voice/evo_1.mp3",
+      "resources": "assets/voice/evo_1"
+    },
+    {
+      "key": "assets/voice/evo_2.mp3",
+      "resources": "assets/voice/evo_2"
+    },
+    {
+      "key": "assets/voice/evo_3.mp3",
+      "resources": "assets/voice/evo_3"
+    },
+    {
+      "key": "assets/voice/evo_4.mp3",
+      "resources": "assets/voice/evo_4"
+    },
+    {
+      "key": "assets/voice/evo_5.mp3",
+      "resources": "assets/voice/evo_5"
+    },
+    {
+      "key": "assets/voice/evo_6.mp3",
+      "resources": "assets/voice/evo_6"
+    }
+  ]
+}
