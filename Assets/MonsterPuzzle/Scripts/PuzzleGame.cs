@@ -41,9 +41,39 @@ namespace MonsterPuzzle {
         string cutKey;
         readonly List<int> sequence=new List<int>();
         double seed;
-        bool[] defeated=new bool[16];
+        bool[] defeated=new bool[PuzzleData.StageCount];
         int galleryBoss=-1, galleryImage;
         Texture2D circle;
+        Texture2D bgMain;
+        Texture2D backgroundOverlay;
+        Texture2D panelTexture;
+        Texture2D subPanelTexture;
+        Texture2D accentPanelTexture;
+        Texture2D boardPanelTexture;
+        Texture2D buttonTexture;
+        Texture2D buttonHoverTexture;
+        Texture2D buttonActiveTexture;
+        Texture2D buttonDisabledTexture;
+        Texture2D titlePanelTexture;
+        Texture2D overlayTexture;
+        GUIStyle titleStyle;
+        GUIStyle sectionStyle;
+        GUIStyle labelStyle;
+        GUIStyle smallLabelStyle;
+        GUIStyle centeredLabelStyle;
+        GUIStyle warningLabelStyle;
+        GUIStyle panelStyle;
+        GUIStyle subPanelStyle;
+        GUIStyle boardPanelStyle;
+        GUIStyle buttonStyle;
+        GUIStyle compactButtonStyle;
+        GUIStyle badgeStyle;
+        GUIStyle overlayStyle;
+        GUIStyle scrollLabelStyle;
+        bool stylesReady;
+        readonly Dictionary<string, Texture2D> loadedTextureCache=new Dictionary<string, Texture2D>();
+        readonly Dictionary<string, Texture2D> renderedBallCache=new Dictionary<string, Texture2D>();
+        readonly List<Texture2D> generatedTextures=new List<Texture2D>();
         Vector2 rulesScroll;
         AudioSource audioSource;
         float voiceAt=-100;
@@ -51,17 +81,22 @@ namespace MonsterPuzzle {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)] static void Boot(){
             if(FindObjectOfType<PuzzleGame>()==null) new GameObject("MonsterPuzzle").AddComponent<PuzzleGame>();
         }
-        void Awake(){
-            audioSource=gameObject.AddComponent<AudioSource>();
-            circle=new Texture2D(128, 128, TextureFormat.RGBA32, false);
-            for(int y=0; y<128; y++)for(int x=0; x<128; x++)circle.SetPixel(x, y, new Color(1, 1, 1, Vector2.Distance(new Vector2(x, y), new Vector2(63.5f, 63.5f))<=63?1:0));
-            circle.Apply();
-            StartGame(true);
-        }
+        
+void Awake(){
+    audioSource=gameObject.AddComponent<AudioSource>();
+    circle=CreateCircleTexture(128);
+    CreateUiResources();
+    bgMain=LoadImageTexture("assets/bg_main.png");
+    StartGame(true);
+}
+        
         void OnDestroy(){
             if(player!=null) Destroy(player.Root);
             if(ai!=null) Destroy(ai.Root);
-            if(circle!=null) Destroy(circle);
+            foreach(var tex in generatedTextures)DestroyGeneratedTexture(tex);
+            generatedTextures.Clear();
+            renderedBallCache.Clear();
+            loadedTextureCache.Clear();
         }
         static int Spawn(float x){
             int[] w={
@@ -265,18 +300,21 @@ namespace MonsterPuzzle {
                 return "music/" + key.Substring(assetsPrefix.Length);
             return key;
         }
-        static string ImageResourcePath(string key){
-            const string assetsPrefix = "assets/";
-            if(!key.StartsWith(assetsPrefix, StringComparison.Ordinal))
-                return key;
+        
+static string ImageResourcePath(string key){
+    const string assetsPrefix = "assets/";
+    if(!key.StartsWith(assetsPrefix, StringComparison.Ordinal))
+        return key;
 
-            string assetName = key.Substring(assetsPrefix.Length);
-            if(assetName.StartsWith("kaiju_", StringComparison.Ordinal))
-                return "item/" + assetName;
-            if(assetName.StartsWith("mecha", StringComparison.Ordinal))
-                return "stand/" + assetName;
-            return "cg/" + assetName;
-        }
+    string assetName = key.Substring(assetsPrefix.Length);
+    if(assetName.StartsWith("kaiju_", StringComparison.Ordinal))
+        return "item/" + assetName;
+    if(assetName.StartsWith("ojama_", StringComparison.Ordinal))
+        return "item/" + assetName;
+    if(assetName.StartsWith("mecha", StringComparison.Ordinal))
+        return "stand/" + assetName;
+    return "cg/" + assetName;
+}
         void Play(string key){
             if(!sound)return;
             var clip=Resources.Load<AudioClip>(AudioResourcePath(key));
@@ -614,228 +652,409 @@ namespace MonsterPuzzle {
             }
             [st]+".png";
         }
-        void Image(Rect r, string key){
-            string resourcePath = ImageResourcePath(key);
+        
+        static string StripExtension(string resourcePath){
             int extension = resourcePath.LastIndexOf('.');
-            if(extension >= 0)resourcePath = resourcePath.Substring(0, extension);
-            var tex=Resources.Load<Texture2D>(resourcePath);
-            if(tex!=null)GUI.DrawTexture(r, tex, ScaleMode.ScaleToFit);
-            else GUI.Box(r, key);
+            return extension >= 0 ? resourcePath.Substring(0, extension) : resourcePath;
+        }
+        void DestroyGeneratedTexture(Texture2D tex){
+            if(tex!=null) Destroy(tex);
+        }
+        Texture2D TrackTexture(Texture2D tex){
+            generatedTextures.Add(tex);
+            return tex;
+        }
+        Texture2D CreateCircleTexture(int size){
+            var tex=TrackTexture(new Texture2D(size, size, TextureFormat.RGBA32, false));
+            float c=(size-1)*0.5f;
+            float r=c;
+            for(int y=0; y<size; y++)for(int x=0; x<size; x++){
+                float dx=x-c;
+                float dy=y-c;
+                tex.SetPixel(x, y, new Color(1, 1, 1, Mathf.Sqrt(dx*dx+dy*dy)<=r?1:0));
+            }
+            tex.filterMode=FilterMode.Bilinear;
+            tex.Apply();
+            return tex;
+        }
+        Texture2D CreateVerticalGradientTexture(int width, int height, Color top, Color bottom, Color border){
+            var tex=TrackTexture(new Texture2D(width, height, TextureFormat.RGBA32, false));
+            for(int y=0; y<height; y++){
+                float t=height<=1?0:(float)y/(height-1);
+                Color row=Color.Lerp(top, bottom, t);
+                for(int x=0; x<width; x++){
+                    bool edge=x<2||y<2||x>=width-2||y>=height-2;
+                    tex.SetPixel(x, y, edge?border:row);
+                }
+            }
+            tex.filterMode=FilterMode.Bilinear;
+            tex.Apply();
+            return tex;
+        }
+        void CreateUiResources(){
+            if(stylesReady)return;
+            backgroundOverlay=CreateVerticalGradientTexture(8, 128, new Color(.06f, .08f, .16f, .08f), new Color(.02f, .03f, .08f, .45f), new Color(0, 0, 0, 0));
+            panelTexture=CreateVerticalGradientTexture(32, 32, new Color(.08f, .10f, .20f, .94f), new Color(.04f, .06f, .13f, .94f), new Color(.42f, .58f, .82f, .95f));
+            subPanelTexture=CreateVerticalGradientTexture(32, 32, new Color(.10f, .12f, .24f, .88f), new Color(.05f, .07f, .16f, .90f), new Color(.26f, .38f, .64f, .90f));
+            accentPanelTexture=CreateVerticalGradientTexture(32, 32, new Color(.18f, .12f, .30f, .96f), new Color(.08f, .07f, .18f, .96f), new Color(.84f, .63f, .32f, .96f));
+            boardPanelTexture=CreateVerticalGradientTexture(32, 64, new Color(.06f, .09f, .18f, .96f), new Color(.02f, .03f, .08f, .97f), new Color(.30f, .45f, .74f, .95f));
+            buttonTexture=CreateVerticalGradientTexture(32, 32, new Color(.31f, .41f, .82f, .98f), new Color(.16f, .24f, .61f, .98f), new Color(.88f, .92f, 1f, 1f));
+            buttonHoverTexture=CreateVerticalGradientTexture(32, 32, new Color(.44f, .55f, .96f, 1f), new Color(.22f, .32f, .76f, 1f), new Color(1f, 1f, 1f, 1f));
+            buttonActiveTexture=CreateVerticalGradientTexture(32, 32, new Color(.22f, .30f, .63f, 1f), new Color(.10f, .15f, .44f, 1f), new Color(.92f, .78f, .42f, 1f));
+            titlePanelTexture=CreateVerticalGradientTexture(32, 48, new Color(.18f, .11f, .32f, .98f), new Color(.07f, .08f, .18f, .98f), new Color(.96f, .80f, .42f, 1f));
+            overlayTexture=CreateVerticalGradientTexture(16, 32, new Color(0f, 0f, 0f, .78f), new Color(.06f, .07f, .13f, .88f), new Color(.88f, .92f, 1f, .30f));
+
+            titleStyle=new GUIStyle(GUI.skin.label){ fontSize=30, fontStyle=FontStyle.Bold, alignment=TextAnchor.MiddleCenter, normal={textColor=new Color(1f, .96f, .82f)}, padding=new RectOffset(12, 12, 8, 8) };
+            sectionStyle=new GUIStyle(GUI.skin.label){ fontSize=15, fontStyle=FontStyle.Bold, normal={textColor=new Color(.95f, .97f, 1f)}, padding=new RectOffset(4, 4, 2, 4) };
+            labelStyle=new GUIStyle(GUI.skin.label){ fontSize=14, wordWrap=true, normal={textColor=new Color(.94f, .97f, 1f)} };
+            smallLabelStyle=new GUIStyle(labelStyle){ fontSize=12 };
+            centeredLabelStyle=new GUIStyle(labelStyle){ alignment=TextAnchor.MiddleCenter, fontStyle=FontStyle.Bold };
+            warningLabelStyle=new GUIStyle(labelStyle){ alignment=TextAnchor.MiddleCenter, fontStyle=FontStyle.Bold, normal={textColor=new Color(1f, .80f, .65f)} };
+            panelStyle=new GUIStyle(GUI.skin.box){ normal={background=panelTexture, textColor=Color.white}, border=new RectOffset(4, 4, 4, 4), padding=new RectOffset(12, 12, 12, 12) };
+            subPanelStyle=new GUIStyle(GUI.skin.box){ normal={background=subPanelTexture, textColor=Color.white}, border=new RectOffset(4, 4, 4, 4), padding=new RectOffset(10, 10, 10, 10) };
+            boardPanelStyle=new GUIStyle(GUI.skin.box){ normal={background=boardPanelTexture, textColor=Color.white}, border=new RectOffset(4, 4, 4, 4), padding=new RectOffset(8, 8, 8, 8) };
+            buttonStyle=new GUIStyle(GUI.skin.button){
+                fontSize=14,
+                fontStyle=FontStyle.Bold,
+                alignment=TextAnchor.MiddleCenter,
+                normal={background=buttonTexture, textColor=Color.white},
+                hover={background=buttonHoverTexture, textColor=Color.white},
+                active={background=buttonActiveTexture, textColor=Color.white},
+                focused={background=buttonHoverTexture, textColor=Color.white},
+                onNormal={background=buttonActiveTexture, textColor=Color.white},
+                padding=new RectOffset(10, 10, 8, 8),
+                border=new RectOffset(4, 4, 4, 4)
+            };
+            compactButtonStyle=new GUIStyle(buttonStyle){ fontSize=13, padding=new RectOffset(8, 8, 6, 6) };
+            badgeStyle=new GUIStyle(GUI.skin.box){ fontSize=14, fontStyle=FontStyle.Bold, alignment=TextAnchor.MiddleCenter, normal={background=accentPanelTexture, textColor=Color.white}, border=new RectOffset(4, 4, 4, 4), padding=new RectOffset(8, 8, 6, 6) };
+            overlayStyle=new GUIStyle(GUI.skin.box){ fontSize=22, fontStyle=FontStyle.Bold, alignment=TextAnchor.MiddleCenter, normal={background=overlayTexture, textColor=Color.white}, wordWrap=true, padding=new RectOffset(20, 20, 18, 18), border=new RectOffset(4, 4, 4, 4) };
+            scrollLabelStyle=new GUIStyle(labelStyle){ margin=new RectOffset(4, 4, 4, 4) };
+            stylesReady=true;
+        }
+        Texture2D LoadImageTexture(string key){
+            string resourcePath=StripExtension(ImageResourcePath(key));
+            Texture2D tex;
+            if(!loadedTextureCache.TryGetValue(resourcePath, out tex)){
+                tex=Resources.Load<Texture2D>(resourcePath);
+                loadedTextureCache[resourcePath]=tex;
+            }
+            return tex;
+        }
+        Color TierColor(int tier){
+            Color color;
+            ColorUtility.TryParseHtmlString(PuzzleData.Colors[Mathf.Clamp(tier, 0, PuzzleData.Colors.Length-1)], out color);
+            return color;
         }
         static string KaijuImageKey(int tier){
             return "assets/kaiju_" + PuzzleData.Keys[tier] + ".png";
         }
-        void Dot(Rect r, int tier, int hard){
-            // 通常玉は段階に対応する怪獣画像を優先して描画する。
-            // お邪魔玉は従来どおり色付きの泡として描画する。
-            if(hard==0){
-                string resourcePath=ImageResourcePath(KaijuImageKey(tier));
-                int extension=resourcePath.LastIndexOf('.');
-                if(extension>=0)resourcePath=resourcePath.Substring(0, extension);
-                Texture2D kaiju=Resources.Load<Texture2D>(resourcePath);
-                if(kaiju!=null){
-                    var previousColor=GUI.color;
-                    GUI.color=Color.white;
-                    GUI.DrawTexture(r, kaiju, ScaleMode.ScaleToFit);
-                    GUI.color=previousColor;
-                    return;
+        static string OjamaImageKey(int hard, int sizeTier){
+            if(hard==1)return "assets/ojama_bubble.png";
+            return "assets/ojama_purple_" + (Mathf.Clamp(sizeTier, 0, 2)+1) + ".png";
+        }
+        int BossHeroIndex(){
+            return bossStage%PuzzleData.StageCount;
+        }
+        int BossVisualState(){
+            if(MaxHp()<=0)return 3;
+            float remain=hp/(float)MaxHp();
+            if(remain>.75f)return 0;
+            if(remain>.5f)return 1;
+            if(remain>.25f)return 2;
+            return 3;
+        }
+        string BossStandKey(){
+            return HeroKey(BossHeroIndex(), BossVisualState());
+        }
+        string BossSceneKey(int bossIndex, int sceneIndex){
+            return "assets/scenes/scene_char"+(bossIndex+1).ToString("00")+"_"+PuzzleData.Keys[bossIndex%PuzzleData.Keys.Length]+"_"+new[]{ "start", "mid", "after" }[Mathf.Clamp(sceneIndex, 0, 2)]+".jpg";
+        }
+        Texture2D BuildBallTexture(Texture2D source, Color ringColor, float imageAlpha, float brightness){
+            if(source==null)return null;
+            int size=192;
+            float center=(size-1)*0.5f;
+            float outerRadius=center-1f;
+            float innerRadius=outerRadius*.93f;
+            float square=Mathf.Min(source.width, source.height);
+            float offsetX=(source.width-square)*0.5f;
+            float offsetY=(source.height-square)*0.5f;
+            var tex=TrackTexture(new Texture2D(size, size, TextureFormat.RGBA32, false));
+            for(int y=0; y<size; y++)for(int x=0; x<size; x++){
+                float dx=(x+.5f)-center;
+                float dy=(y+.5f)-center;
+                float distance=Mathf.Sqrt(dx*dx+dy*dy);
+                Color pixel;
+                if(distance>outerRadius)pixel=new Color(0, 0, 0, 0);
+                else if(distance>innerRadius)pixel=ringColor;
+                else{
+                    float u=Mathf.Clamp01((dx/innerRadius+1f)*.5f);
+                    float v=Mathf.Clamp01((dy/innerRadius+1f)*.5f);
+                    float su=(offsetX+u*(square-1f))/Mathf.Max(1f, source.width-1f);
+                    float sv=(offsetY+v*(square-1f))/Mathf.Max(1f, source.height-1f);
+                    Color sample=source.GetPixelBilinear(su, sv);
+                    sample.r*=brightness;
+                    sample.g*=brightness;
+                    sample.b*=brightness;
+                    sample.a*=imageAlpha;
+                    pixel=Color.Lerp(Color.white, sample, Mathf.Clamp01(sample.a));
+                    pixel.a=1f;
                 }
+                tex.SetPixel(x, y, pixel);
             }
-
-            Color c;
-            ColorUtility.TryParseHtmlString(PuzzleData.Colors[tier], out c);
+            tex.filterMode=FilterMode.Bilinear;
+            tex.Apply();
+            return tex;
+        }
+        Texture2D GetRenderedBallTexture(int tier, int hard){
+            string cacheKey=tier+":"+hard;
+            Texture2D texture;
+            if(renderedBallCache.TryGetValue(cacheKey, out texture))return texture;
+            Texture2D source=null;
+            Color ring=TierColor(tier);
+            float alpha=1f;
+            float brightness=1f;
+            if(hard==0)source=LoadImageTexture(KaijuImageKey(tier));
+            else if(hard==1){
+                source=LoadImageTexture(OjamaImageKey(hard, tier));
+                ring.a=.85f;
+                alpha=.76f;
+            }
+            else if(hard==2){
+                source=LoadImageTexture(OjamaImageKey(hard, tier));
+                ring=new Color(.58f, .22f, .78f, 1f);
+            }
+            else if(hard==3){
+                source=LoadImageTexture(OjamaImageKey(hard, tier));
+                ring=new Color(.27f, .08f, .40f, 1f);
+                brightness=.55f;
+            }
+            texture=BuildBallTexture(source, ring, alpha, brightness);
+            renderedBallCache[cacheKey]=texture;
+            return texture;
+        }
+        void Image(Rect r, string key){
+            Texture2D tex=LoadImageTexture(key);
+            if(tex!=null)GUI.DrawTexture(r, tex, ScaleMode.ScaleToFit, true);
+            else GUI.Box(r, key, subPanelStyle);
+        }
+        void DrawFallbackBall(Rect r, int tier, int hard){
+            Color c=TierColor(tier);
             if(hard==1)c.a=.42f;
-            if(hard==2)c=new Color(.55f,.22f,.75f);
-            if(hard==3)c=new Color(.25f,.08f,.4f);
+            if(hard==2)c=new Color(.55f, .22f, .75f);
+            if(hard==3)c=new Color(.25f, .08f, .4f);
             var old=GUI.color;
             GUI.color=c;
             GUI.DrawTexture(r, circle);
             GUI.color=old;
             if(hard==0){
-                var style=new GUIStyle(GUI.skin.label){
-                    alignment=TextAnchor.MiddleCenter, fontSize=Mathf.Clamp((int)(r.width*.35f), 10, 25)
-                }
-                ;
+                var style=new GUIStyle(centeredLabelStyle){ fontSize=Mathf.Clamp((int)(r.width*.35f), 10, 25) };
                 GUI.Label(r, (tier+1).ToString(), style);
             }
         }
-        void DrawBoard(Board b, Rect area, bool human)
-        {
-            if (human && mode != Mode.Versus && clock < b.ShuffleVisualUntil)
-            {
-                area.x += Mathf.Sin(clock * 80f) * 5f;
-                area.y += Mathf.Cos(clock * 91f) * 3f;
+        void Dot(Rect r, int tier, int hard){
+            Texture2D visual=GetRenderedBallTexture(tier, hard);
+            if(visual!=null){
+                GUI.DrawTexture(r, visual, ScaleMode.StretchToFill, true);
+                return;
             }
-            float k=area.width/b.W;
-            GUI.BeginGroup(area);
-            GUI.Box(new Rect(0, 0, area.width, area.height), "");
-            Image(new Rect(0, 0, area.width, area.height), HeroKey(b.Hero, b.Stage));
-            var old=GUI.color;
-            GUI.color=new Color(.1f,.05f,.2f,.55f);
-            GUI.DrawTexture(new Rect(0, 0, area.width, area.height), Texture2D.whiteTexture);
-            GUI.color=Color.red;
-            GUI.DrawTexture(new Rect(0, b.Line*k, area.width, 2), Texture2D.whiteTexture);
-            GUI.color=old;
-            foreach(var p in b.Balls){
-                var at=Pos(b, p);
-                float r=p.R*k;
-                Dot(new Rect(at.x*k-r, at.y*k-r, r*2, r*2), p.Tier, p.Hard);
+            DrawFallbackBall(r, tier, hard);
+        }
+        void DrawScreenBackground(){
+            GUI.depth=100;
+            if(bgMain==null)bgMain=LoadImageTexture("assets/bg_main.png");
+            if(bgMain!=null)GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), bgMain, ScaleMode.StretchToFill, true);
+            else{
+                GUI.color=new Color(.07f, .10f, .18f, 1f);
+                GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
             }
-            if(!finished&&scene<0){
-                int t=Peek(b, 0);
-                float r=PuzzleData.Radii[t]*b.Scale*k;
-                Dot(new Rect(Mathf.Clamp(b.Aim*k, r, area.width-r)-r, b.Drop*k-r, r*2, r*2), t, 0);
+            GUI.color=Color.white;
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), backgroundOverlay, ScaleMode.StretchToFill, true);
+        }
+        void DrawBossStatus(Rect area){
+            GUI.Box(area, GUIContent.none, panelStyle);
+            GUI.Label(new Rect(area.x+14, area.y+10, area.width-28, 28), "敵ボス："+PuzzleData.BossNames[BossHeroIndex()], sectionStyle);
+            Image(new Rect(area.x+20, area.y+44, area.width-40, 280), BossStandKey());
+            GUI.Label(new Rect(area.x+16, area.y+330, area.width-32, 24), "脱衣段階　"+new[]{ "normal", "mid", "heavy", "down" }[BossVisualState()], centeredLabelStyle);
+            GUI.Label(new Rect(area.x+16, area.y+356, area.width-32, 46), "HP "+hp+" / "+MaxHp(), badgeStyle);
+            GUI.Label(new Rect(area.x+16, area.y+408, area.width-32, 40), "周回ごとにHPが上昇します。
+撃破後は場面CGを閲覧できます。", smallLabelStyle);
+        }
+        bool StyledButton(Rect rect, string text, bool enabled=true){
+            bool old=GUI.enabled;
+            GUI.enabled=enabled;
+            bool result=GUI.Button(rect, text, compactButtonStyle);
+            GUI.enabled=old;
+            return result;
+        }
+        
+void DrawBoard(Board b, Rect area, bool human)
+{
+    if(human&&mode!=Mode.Versus&&clock<b.ShuffleVisualUntil){
+        area.x += Mathf.Sin(clock*80f)*5f;
+        area.y += Mathf.Cos(clock*91f)*3f;
+    }
+    float k=area.width/b.W;
+    GUI.BeginGroup(area, GUIContent.none, boardPanelStyle);
+    GUI.Box(new Rect(0, 0, area.width, area.height), GUIContent.none, boardPanelStyle);
+    Image(new Rect(8, 8, area.width-16, area.height-16), HeroKey(b.Hero, b.Stage));
+    var old=GUI.color;
+    GUI.color=new Color(.08f, .05f, .15f, .52f);
+    GUI.DrawTexture(new Rect(8, 8, area.width-16, area.height-16), Texture2D.whiteTexture);
+    GUI.color=new Color(1f, .35f, .42f, .95f);
+    GUI.DrawTexture(new Rect(10, b.Line*k, area.width-20, 3), Texture2D.whiteTexture);
+    GUI.color=old;
+    foreach(var p in b.Balls){
+        var at=Pos(b, p);
+        float r=p.R*k;
+        Dot(new Rect(at.x*k-r, at.y*k-r, r*2, r*2), p.Tier, p.Hard);
+    }
+    if(!finished&&scene<0){
+        int t=Peek(b, 0);
+        float r=PuzzleData.Radii[t]*b.Scale*k;
+        Dot(new Rect(Mathf.Clamp(b.Aim*k, r, area.width-r)-r, b.Drop*k-r, r*2, r*2), t, 0);
+    }
+    if(b.Countdown>=0)GUI.Label(new Rect(10, b.Line*k+8, area.width-20, 28), "あと "+Mathf.Max(0, b.Countdown).ToString("F1")+" 秒", warningLabelStyle);
+    if(finished)GUI.Box(new Rect(36, area.height*.39f, area.width-72, 70), ai==null?"ゲームオーバー":b.Lost?"まけ":"かち", overlayStyle);
+    if(human&&!finished&&scene<0&&galleryBoss<0){
+        var e=Event.current;
+        var pt=e.mousePosition;
+        if(new Rect(0, 0, area.width, area.height).Contains(pt)){
+            if(e.type==EventType.MouseMove||e.type==EventType.MouseDrag||e.type==EventType.MouseDown||e.type==EventType.MouseUp)b.Aim=pt.x/k;
+            if(e.type==EventType.MouseUp&&e.button==0){
+                if(aiming)Special(b, pt/k);
+                else Drop(b);
+                e.Use();
             }
-            if(b.Countdown>=0)GUI.Label(new Rect(5, b.Line*k+4, area.width-10, 30), "あと "+Mathf.Max(0, b.Countdown).ToString("F1")+" 秒");
-            if(finished)GUI.Box(new Rect(0, area.height*.4f, area.width, 60), ai==null?"ゲームオーバー":b.Lost?"まけ":"かち");
-            if(human&&!finished&&scene<0&&galleryBoss<0){
-                var e=Event.current;
-                var pt=e.mousePosition;
-                if(new Rect(0, 0, area.width, area.height).Contains(pt)){
-                    if(e.type==EventType.MouseMove||e.type==EventType.MouseDrag||e.type==EventType.MouseDown||e.type==EventType.MouseUp)b.Aim=pt.x/k;
-                    if(e.type==EventType.MouseUp&&e.button==0){
-                        if(aiming)Special(b, pt/k);
-                        else Drop(b);
-                        e.Use();
-                    }
-                }
+        }
+    }
+    GUI.EndGroup();
+}
+        
+        void Info(Board b, Rect r, bool human){
+            GUI.BeginGroup(r, GUIContent.none, subPanelStyle);
+            GUI.Box(new Rect(0, 0, r.width, r.height), GUIContent.none, subPanelStyle);
+            if(ai!=null){
+                GUI.Label(new Rect(10, 4, r.width-200, 18), (human?"👤 ":"🤖 ")+PuzzleData.Heroes[b.Hero]+"  Lv."+(b.Stage+1)+"/4  "+new[]{ "通常", "中破", "大破", "ダウン" }[b.Stage], smallLabelStyle);
+                Dot(new Rect(10, 22, 28, 28), Peek(b, 1), 0);
+                GUI.Label(new Rect(44, 20, 140, 16), "NEXT "+PuzzleData.Names[Peek(b, 1)], smallLabelStyle);
+                GUI.Label(new Rect(44, 34, 180, 16), "埋まり "+Mathf.RoundToInt(Fill(b)*100)+"% / ゲージ "+b.Gauge+"%", smallLabelStyle);
+                GUI.Label(new Rect(190, 20, 120, 16), "⏱ "+Mathf.Max(0, b.Timer).ToString("F1")+" 秒", smallLabelStyle);
+                GUI.Label(new Rect(190, 34, 120, 16), "おじゃま "+b.Pending.Count, smallLabelStyle);
+                bool canUse=human&&!finished&&b.Gauge>=100;
+                if(StyledButton(new Rect(r.width-164, 11, 152, 30), (aiming&&human?"照準中：":"⚡")+PuzzleData.Specials[b.Hero], canUse))Special(b, null);
+            }
+            else{
+                GUI.Label(new Rect(12, 8, r.width-24, 24), (human?"👤 ":"🤖 ")+PuzzleData.Heroes[b.Hero]+"  Lv."+(b.Stage+1)+"/4  "+new[]{ "通常", "中破", "大破", "ダウン" }[b.Stage], sectionStyle);
+                GUI.Label(new Rect(12, 30, r.width-24, 22), "盤面の埋まり "+Mathf.RoundToInt(Fill(b)*100)+"%", labelStyle);
+                GUI.Label(new Rect(12, 52, 80, 20), "NEXT", sectionStyle);
+                Dot(new Rect(94, 44, 44, 44), Peek(b, 1), 0);
+                GUI.Label(new Rect(146, 50, r.width-158, 24), PuzzleData.Names[Peek(b, 1)], labelStyle);
             }
             GUI.EndGroup();
         }
-        void Info(Board b, Rect r, bool human){
-            GUILayout.BeginArea(r);
-            GUILayout.Label((human?"👤 ":"🤖 ")+PuzzleData.Heroes[b.Hero]+"  Lv."+(b.Stage+1)+"/4 "+new[]{
-                "通常", "中破", "大破", "ダウン"
-            }
-            [b.Stage]+"（盤面の埋まり "+Mathf.RoundToInt(Fill(b)*100)+"%）");
-            GUILayout.Label("NEXT  "+PuzzleData.Names[Peek(b, 1)]);
-            if(ai!=null){
-                GUILayout.Label("⏱ あと "+Mathf.Max(0, b.Timer).ToString("F1")+" 秒  おじゃま待機 "+b.Pending.Count);
-                GUILayout.Label("必殺技ゲージ "+b.Gauge+"%");
-                GUI.enabled=human&&!finished&&b.Gauge>=100;
-                if(GUILayout.Button((aiming&&human?"照準中：":"⚡")+PuzzleData.Specials[b.Hero]))Special(b, null);
-                GUI.enabled=true;
-            }
-            GUILayout.EndArea();
-        }
-        void OnGUI(){
-            if(player==null)return;
-            float scale=Mathf.Min(Screen.width/1100f, Screen.height/800f);
-            GUI.matrix=Matrix4x4.TRS(new Vector3((Screen.width-1100*scale)/2, (Screen.height-800*scale)/2, 0), Quaternion.identity, new Vector3(scale, scale, 1));
-            GUILayout.BeginArea(new Rect(10, 5, 1080, 115));
-            GUILayout.Label("モンスター討伐パズル");
+        
+void OnGUI(){
+    if(player==null)return;
+    CreateUiResources();
+    Matrix4x4 oldMatrix=GUI.matrix;
+    DrawScreenBackground();
+    GUI.matrix=oldMatrix;
+
+    float scale=Mathf.Min(Screen.width/1100f, Screen.height/800f);
+    GUI.matrix=Matrix4x4.TRS(new Vector3((Screen.width-1100*scale)/2, (Screen.height-800*scale)/2, 0), Quaternion.identity, new Vector3(scale, scale, 1));
+
+    GUI.Box(new Rect(10, 5, 1080, 118), GUIContent.none, panelStyle);
+    GUI.DrawTexture(new Rect(10, 5, 1080, 40), titlePanelTexture, ScaleMode.StretchToFill, true);
+    GUI.Label(new Rect(16, 8, 1068, 30), "モンスター討伐パズル", titleStyle);
+
+    GUILayout.BeginArea(new Rect(18, 46, 1064, 72));
+    GUILayout.BeginHorizontal();
+    if(GUILayout.Button("ソロ", compactButtonStyle, GUILayout.Width(105))) { mode=Mode.Solo; StartGame(true); }
+    if(GUILayout.Button("⚔ ボス制圧戦（1人用）", compactButtonStyle, GUILayout.Width(180))) { mode=Mode.Boss; StartGame(true); }
+    if(GUILayout.Button("👙 AI対戦", compactButtonStyle, GUILayout.Width(120))) { mode=Mode.Versus; StartGame(true); }
+    if(GUILayout.Button("↺ はじめから", compactButtonStyle, GUILayout.Width(120)))StartGame(true);
+    if(GUILayout.Button(sound?"🔊 音 ON":"🔇 音 OFF", compactButtonStyle, GUILayout.Width(110)))sound=!sound;
+    GUILayout.FlexibleSpace();
+    GUILayout.EndHorizontal();
+
+    GUILayout.BeginHorizontal();
+    GUILayout.Label("キャラ", sectionStyle, GUILayout.Width(52));
+    if(GUILayout.Button("◀", compactButtonStyle, GUILayout.Width(40))){ hero=(hero+9)%10; player.Hero=hero; }
+    GUILayout.Label(PuzzleData.Heroes[hero], labelStyle, GUILayout.Width(90));
+    if(GUILayout.Button("▶", compactButtonStyle, GUILayout.Width(40))){ hero=(hero+1)%10; player.Hero=hero; }
+    if(ai!=null){
+        GUILayout.Space(12);
+        if(GUILayout.Button("AI ◀", compactButtonStyle, GUILayout.Width(64))){ enemy=(enemy+9)%10; ai.Hero=enemy; }
+        GUILayout.Label(PuzzleData.Heroes[enemy], labelStyle, GUILayout.Width(90));
+        if(GUILayout.Button("AI ▶", compactButtonStyle, GUILayout.Width(64))){ enemy=(enemy+1)%10; ai.Hero=enemy; }
+        if(GUILayout.Button(new[]{ "弱い", "普通", "強い" }[difficulty], compactButtonStyle, GUILayout.Width(72)))difficulty=(difficulty+1)%3;
+    }
+    string shuffleLabel = player.ShuffleSettling ? "💥 揺らしてます…" : clock < player.ShuffleCooldownUntil ? "🌀 シャッフル（あと" + Mathf.CeilToInt(player.ShuffleCooldownUntil - clock) + "秒）" : "🌀 シャッフル";
+    GUI.enabled = !finished && scene < 0 && !player.ShuffleSettling && clock >= player.ShuffleCooldownUntil && player.Balls.Count > 0;
+    GUILayout.FlexibleSpace();
+    if(GUILayout.Button(shuffleLabel, compactButtonStyle, GUILayout.Width(210))) Shuffle(player);
+    GUI.enabled = true;
+    GUILayout.EndHorizontal();
+    GUILayout.EndArea();
+
+    GUI.Box(new Rect(10, 126, 1080, 34), GUIContent.none, subPanelStyle);
+    string scoreText="SCORE "+player.Score+"    BEST "+best;
+    if(mode==Mode.Boss)scoreText += "    STAGE "+(bossStage+1)+" / "+PuzzleData.StageCount+"  ボス："+PuzzleData.BossNames[BossHeroIndex()]+"  HP "+hp+" / "+MaxHp()+"  "+loop+"周目";
+    GUI.Label(new Rect(20, 132, 1060, 22), scoreText, sectionStyle);
+
+    if(ai!=null){
+        DrawBoard(player, new Rect(55, 170, 420, 568), true);
+        DrawBoard(ai, new Rect(625, 170, 420, 568), false);
+        Info(player, new Rect(55, 742, 420, 54), true);
+        Info(ai, new Rect(625, 742, 420, 54), false);
+    }
+    else{
+        DrawBoard(player, new Rect(30, 170, 460, 620), true);
+        Info(player, new Rect(510, 170, 570, 82), true);
+        if(mode==Mode.Boss)DrawBossStatus(new Rect(510, 260, 570, 468));
+        else GUI.Box(new Rect(510, 260, 570, 468), GUIContent.none, panelStyle);
+
+        GUI.Box(new Rect(510, 540, 570, 250), GUIContent.none, panelStyle);
+        GUILayout.BeginArea(new Rect(520, 550, 550, 228));
+        rulesScroll=GUILayout.BeginScrollView(rulesScroll);
+        for(int i=0; i<11; i++)GUILayout.Label((i+1)+". "+PuzzleData.Names[i]+(i==10?"（最終形態） 合体で消滅 +500点":i==0?" 落下で登場":" 合体 "+((i+1)*(i+2)/2*10)+"点"), scrollLabelStyle);
+        GUILayout.Label("通常玉が赤いラインより上に留まり続けると10秒のカウントダウンが進み、0になるとゲームオーバーです（ラインを下回ればその玉のカウントは解除されます。上端に触れただけ・一瞬ラインを越えただけでは負けません）。", scrollLabelStyle);
+        if(mode==Mode.Boss){
+            GUILayout.Space(8);
+            GUILayout.Label("討伐済みCGギャラリー", sectionStyle);
             GUILayout.BeginHorizontal();
-            if(GUILayout.Button("ソロ")){
-                mode=Mode.Solo;
-                StartGame(true);
-            }
-            if(GUILayout.Button("⚔ ボス制圧戦（1人用）")){
-                mode=Mode.Boss;
-                StartGame(true);
-            }
-            if(GUILayout.Button("👙 AI対戦")){
-                mode=Mode.Versus;
-                StartGame(true);
-            }
-            if(GUILayout.Button("↺ はじめから"))StartGame(true);
-            if(GUILayout.Button(sound?"🔊 音 ON":"🔇 音 OFF"))sound=!sound;
+            for(int i=0; i<PuzzleData.StageCount; i++)if(defeated[i]&&GUILayout.Button(PuzzleData.BossNames[i], compactButtonStyle, GUILayout.Width(96))){ galleryBoss=i; galleryImage=0; }
             GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("キャラ", GUILayout.Width(45));
-            if(GUILayout.Button("◀", GUILayout.Width(35))){
-                hero=(hero+9)%10;
-                player.Hero=hero;
-            }
-            GUILayout.Label(PuzzleData.Heroes[hero], GUILayout.Width(90));
-            if(GUILayout.Button("▶", GUILayout.Width(35))){
-                hero=(hero+1)%10;
-                player.Hero=hero;
-            }
-            if(ai!=null){
-                if(GUILayout.Button("AI ◀")){
-                    enemy=(enemy+9)%10;
-                    ai.Hero=enemy;
-                }
-                GUILayout.Label(PuzzleData.Heroes[enemy]);
-                if(GUILayout.Button("AI ▶")){
-                    enemy=(enemy+1)%10;
-                    ai.Hero=enemy;
-                }
-                if(GUILayout.Button(new[]{
-                    "弱い", "普通", "強い"
-                }
-                [difficulty]))difficulty=(difficulty+1)%3;
-            }
-            string shuffleLabel = player.ShuffleSettling
-            ? "💥 揺らしてます…"
-            : clock < player.ShuffleCooldownUntil
-            ? "🌀 シャッフル（あと" + Mathf.CeilToInt(player.ShuffleCooldownUntil - clock) + "秒）"
-            : "🌀 シャッフル";
-            GUI.enabled = !finished && scene < 0 && !player.ShuffleSettling &&
-            clock >= player.ShuffleCooldownUntil && player.Balls.Count > 0;
-            if (GUILayout.Button(shuffleLabel)) Shuffle(player);
-            GUI.enabled = true;
-            GUILayout.EndHorizontal();
-            GUILayout.Label("SCORE "+player.Score+"    BEST "+best+(mode==Mode.Boss?"    STAGE "+(bossStage+1)+" / "+PuzzleData.StageCount+"  ボス："+PuzzleData.BossNames[bossStage]+"  HP "+hp+" / "+MaxHp()+"  "+loop+"周目":""));
-            GUILayout.EndArea();
-            if(ai!=null){
-                DrawBoard(player, new Rect(55, 120, 420, 568), true);
-                DrawBoard(ai, new Rect(625, 120, 420, 568), false);
-                Info(player, new Rect(55, 690, 420, 106), true);
-                Info(ai, new Rect(625, 690, 420, 106), false);
-            }
-            else{
-                DrawBoard(player, new Rect(30, 120, 460, 620), true);
-                Info(player, new Rect(510, 120, 570, 75), true);
-                GUILayout.BeginArea(new Rect(510, 200, 570, 540));
-                if(mode==Mode.Boss){
-                    int i=Mathf.Min(PuzzleData.BossImages[bossStage].Length-1, Mathf.FloorToInt((1-hp/(float)MaxHp())*PuzzleData.BossImages[bossStage].Length));
-                    Image(GUILayoutUtility.GetRect(500, 180), PuzzleData.BossImages[bossStage][i]);
-                }
-                rulesScroll=GUILayout.BeginScrollView(rulesScroll);
-                for(int i=0; i<11; i++)GUILayout.Label((i+1)+". "+PuzzleData.Names[i]+(i==10?"（最終形態） 合体で消滅 +500点":i==0?" 落下で登場":" 合体 "+((i+1)*(i+2)/2*10)+"点"));
-                GUILayout.Label("通常玉が赤いラインより上に留まり続けると10秒のカウントダウンが進み、0になるとゲームオーバーです（ラインを下回ればその玉のカウントは解除されます。上端に触れただけ・一瞬ラインを越えただけでは負けません）。");
-                if(mode==Mode.Boss){
-                    GUILayout.Label("討伐済みCGギャラリー");
-                    for(int i=0; i<PuzzleData.StageCount; i++)if(defeated[i]&&GUILayout.Button(PuzzleData.BossNames[i])){
-                        galleryBoss=i;
-                        galleryImage=0;
-                    }
-                }
-                GUILayout.EndScrollView();
-                GUILayout.EndArea();
-            }
-            if(finished&&GUI.Button(new Rect(490, 405, 120, 55), mode==Mode.Boss?"やり直す":"もう一度")){
-                if(mode==Mode.Boss)StartGame(false);
-                else StartGame(true);
-            }
-            if(clock<cutEnd&&cutKey!=null){
-                Rect r=new Rect(cutSide==0?10:790, 650, 300, 100);
-                Image(r, cutKey);
-                GUI.Label(r, new[]{
-                    "通常", "中破！", "大破！"
-                }
-                [cutStage]);
-            }
-            if(scene>=0&&scene<3){
-                GUI.Box(new Rect(250, 130, 600, 590), "⚔ 討伐完了！");
-                string key="assets/scenes/scene_char"+(hero+1).ToString("00")+"_"+PuzzleData.Keys[bossStage % PuzzleData.Keys.Length]+"_"+new[]{
-                    "start", "mid", "after"
-                }
-                [scene]+".jpg";
-                Image(new Rect(270, 170, 560, 470), key);
-                GUI.Label(new Rect(270, 640, 560, 25), "Stage "+(bossStage+1)+" クリア！ "+(scene+1)+" / 3");
-                if(scene>0&&GUI.Button(new Rect(270, 675, 120, 32), "前へ"))scene--;
-                if(GUI.Button(new Rect(690, 675, 120, 32), scene==2?"閉じる":"次へ"))scene++;
-            }
-            if(galleryBoss>=0){
-                GUI.Box(new Rect(200, 100, 700, 650), "討伐済み敗北CG："+PuzzleData.BossNames[galleryBoss]);
-                Image(new Rect(220, 140, 660, 540), PuzzleData.BossImages[galleryBoss][galleryImage]);
-                if(GUI.Button(new Rect(220, 700, 120, 35), "前へ"))galleryImage=Mathf.Max(0, galleryImage-1);
-                if(GUI.Button(new Rect(360, 700, 120, 35), "次へ"))galleryImage=Mathf.Min(PuzzleData.BossImages[galleryBoss].Length-1, galleryImage+1);
-                if(GUI.Button(new Rect(740, 700, 120, 35), "閉じる"))galleryBoss=-1;
-            }
         }
+        GUILayout.EndScrollView();
+        GUILayout.EndArea();
+    }
+
+    if(finished&&GUI.Button(new Rect(490, 405, 120, 55), mode==Mode.Boss?"やり直す":"もう一度", buttonStyle)){
+        if(mode==Mode.Boss)StartGame(false); else StartGame(true);
+    }
+    if(clock<cutEnd&&cutKey!=null){
+        Rect r=new Rect(cutSide==0?10:790, 650, 300, 100);
+        GUI.Box(r, GUIContent.none, subPanelStyle);
+        Image(new Rect(r.x+8, r.y+8, 96, 84), cutKey);
+        GUI.Label(new Rect(r.x+112, r.y+8, 176, 82), new[]{ "通常", "中破！", "大破！" }[cutStage], centeredLabelStyle);
+    }
+    if(scene>=0&&scene<3){
+        GUI.Box(new Rect(230, 118, 640, 610), "⚔ 討伐完了！", overlayStyle);
+        string key=BossSceneKey(BossHeroIndex(), scene);
+        Image(new Rect(250, 168, 600, 470), key);
+        GUI.Label(new Rect(250, 644, 600, 24), "Stage "+(bossStage+1)+" クリア！ "+(scene+1)+" / 3", centeredLabelStyle);
+        if(scene>0&&GUI.Button(new Rect(250, 680, 120, 34), "前へ", buttonStyle))scene--;
+        if(GUI.Button(new Rect(730, 680, 120, 34), scene==2?"閉じる":"次へ", buttonStyle))scene++;
+    }
+    if(galleryBoss>=0){
+        GUI.Box(new Rect(180, 90, 740, 670), "討伐済みCG："+PuzzleData.BossNames[galleryBoss], overlayStyle);
+        Image(new Rect(210, 140, 680, 540), BossSceneKey(galleryBoss, galleryImage));
+        if(GUI.Button(new Rect(210, 702, 120, 36), "前へ", buttonStyle))galleryImage=Mathf.Max(0, galleryImage-1);
+        if(GUI.Button(new Rect(348, 702, 120, 36), "次へ", buttonStyle))galleryImage=Mathf.Min(2, galleryImage+1);
+        if(GUI.Button(new Rect(770, 702, 120, 36), "閉じる", buttonStyle))galleryBoss=-1;
+    }
+}
         void Update(){
             if(player==null||finished||scene>=0||galleryBoss>=0)return;
             if(Input.GetKey(KeyCode.LeftArrow))player.Aim-=200*Time.deltaTime;

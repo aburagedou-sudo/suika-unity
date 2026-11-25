@@ -25,7 +25,7 @@ namespace MonsterPuzzle {
         }
         ;
         public static readonly string[] BossNames = {
-            "ヒナタ", "サクラ", "カグラ", "ルミナ", "アヤメ", "ミドリ", "レオナ", "コハク", "アオイ", "ステラ", "シズク", "キキョウ", "フロスト", "モミジ", "ボルト", "セレーネ"
+            "ロゼ", "カカオ", "スミレ", "ギン", "クロエ", "ミカン", "マロン", "アカネ", "ルリ", "ユカリ"
         }
         ;
         public static readonly int[] Radii = {
@@ -33,7 +33,7 @@ namespace MonsterPuzzle {
         }
         ;
         public static readonly int[] BossHp = {
-            350, 550, 800, 1100, 1500, 1900, 2300, 2700, 3100, 3500, 4000, 4500, 5000, 5500, 6000, 6500
+            350, 550, 800, 1100, 1500, 1900, 2300, 2700, 3100, 3500
         }
         ;
         public static readonly int[] Damage = {
@@ -42,55 +42,28 @@ namespace MonsterPuzzle {
         ;
         public static readonly string[][] BossImages = {
             new string[] {
-                "assets/hinata.jpg", "assets/hinata_n1105.jpg", "assets/hinata_n1106.jpg", "assets/hinata_m1107.jpg"
-            }
-            , new string[] {
-                "assets/sakura.jpg", "assets/sakura_mid.jpg", "assets/sakura_lose.jpg", "assets/sakura_no1111.jpg"
-            }
-            , new string[] {
-                "assets/kagura.jpg", "assets/kagura_n1110.jpg", "assets/kagura_m1113.jpg"
-            }
-            , new string[] {
-                "assets/lumina.jpg", "assets/lumina_m1108.jpg", "assets/lumina_m1109.jpg"
-            }
-            , new string[] {
-                "assets/ayame_n1104.jpg", "assets/ayame_m1105.jpg", "assets/ayame_no1105.jpg", "assets/ayame_no1107.jpg", "assets/ayame_m1117.jpg"
-            }
-            , new string[] {
-                "assets/midori.jpg", "assets/midori_cap.jpg", "assets/midori_m1106.jpg", "assets/midori_n1107.jpg", "assets/midori_no1112.jpg", "assets/midori_n1114.jpg"
-            }
-            , new string[] {
-                "assets/leona_lose.jpg", "assets/leona_n1111.jpg", "assets/leona_m1116.jpg"
-            }
-            , new string[] {
-                "assets/kohaku.jpg", "assets/kohaku_cap.jpg", "assets/kohaku_no1110.jpg"
-            }
-            , new string[] {
-                "assets/aoi.jpg", "assets/aoi_no1113.jpg", "assets/aoi_no1115.jpg"
-            }
-            , new string[] {
-                "assets/stella.jpg", "assets/stella_m1111.jpg", "assets/stella_n1115.jpg", "assets/stella_no1117.jpg"
-            }
-            , new string[] {
-                "assets/shizuku.jpg", "assets/shizuku_m1110.jpg", "assets/shizuku_n1116.jpg"
-            }
-            , new string[] {
-                "assets/kikyo_no1109.jpg", "assets/kikyo_n1109.jpg", "assets/kikyo_no1114.jpg", "assets/kikyo_no1116.jpg"
-            }
-            , new string[] {
-                "assets/frost_no1108.jpg", "assets/frost_n1113.jpg"
-            }
-            , new string[] {
-                "assets/momiji_n1108.jpg", "assets/momiji_m1112.jpg"
-            }
-            , new string[] {
-                "assets/bolt_m1114.jpg", "assets/bolt_m1115.jpg"
-            }
-            , new string[] {
-                "assets/selene_n1112.jpg"
+                "assets/scenes/scene_char01_egg_start.jpg", "assets/scenes/scene_char01_egg_mid.jpg", "assets/scenes/scene_char01_egg_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char02_insect_start.jpg", "assets/scenes/scene_char02_insect_mid.jpg", "assets/scenes/scene_char02_insect_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char03_amoeba_start.jpg", "assets/scenes/scene_char03_amoeba_mid.jpg", "assets/scenes/scene_char03_amoeba_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char04_octo_start.jpg", "assets/scenes/scene_char04_octo_mid.jpg", "assets/scenes/scene_char04_octo_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char05_spiky_start.jpg", "assets/scenes/scene_char05_spiky_mid.jpg", "assets/scenes/scene_char05_spiky_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char06_planet_start.jpg", "assets/scenes/scene_char06_planet_mid.jpg", "assets/scenes/scene_char06_planet_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char07_swirl_start.jpg", "assets/scenes/scene_char07_swirl_mid.jpg", "assets/scenes/scene_char07_swirl_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char08_rockeye_start.jpg", "assets/scenes/scene_char08_rockeye_mid.jpg", "assets/scenes/scene_char08_rockeye_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char09_lava_start.jpg", "assets/scenes/scene_char09_lava_mid.jpg", "assets/scenes/scene_char09_lava_after.jpg"
+            }            ,             new string[] {
+                "assets/scenes/scene_char10_sun_start.jpg", "assets/scenes/scene_char10_sun_mid.jpg", "assets/scenes/scene_char10_sun_after.jpg"
             }
         }
         ;
-        public const int StageCount = 16;
+        public const int StageCount = 10;
     }
 }
