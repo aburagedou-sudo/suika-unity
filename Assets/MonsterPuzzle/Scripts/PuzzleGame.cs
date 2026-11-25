@@ -622,7 +622,26 @@ namespace MonsterPuzzle {
             if(tex!=null)GUI.DrawTexture(r, tex, ScaleMode.ScaleToFit);
             else GUI.Box(r, key);
         }
+        static string KaijuImageKey(int tier){
+            return "assets/kaiju_" + PuzzleData.Keys[tier] + ".png";
+        }
         void Dot(Rect r, int tier, int hard){
+            // 通常玉は段階に対応する怪獣画像を優先して描画する。
+            // お邪魔玉は従来どおり色付きの泡として描画する。
+            if(hard==0){
+                string resourcePath=ImageResourcePath(KaijuImageKey(tier));
+                int extension=resourcePath.LastIndexOf('.');
+                if(extension>=0)resourcePath=resourcePath.Substring(0, extension);
+                Texture2D kaiju=Resources.Load<Texture2D>(resourcePath);
+                if(kaiju!=null){
+                    var previousColor=GUI.color;
+                    GUI.color=Color.white;
+                    GUI.DrawTexture(r, kaiju, ScaleMode.ScaleToFit);
+                    GUI.color=previousColor;
+                    return;
+                }
+            }
+
             Color c;
             ColorUtility.TryParseHtmlString(PuzzleData.Colors[tier], out c);
             if(hard==1)c.a=.42f;
