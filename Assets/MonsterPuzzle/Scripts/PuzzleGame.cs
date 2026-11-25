@@ -256,9 +256,30 @@ namespace MonsterPuzzle {
             }
             Play("assets/se_drop");
         }
+        static string AudioResourcePath(string key){
+            const string voicePrefix = "assets/voice/";
+            const string assetsPrefix = "assets/";
+            if(key.StartsWith(voicePrefix, StringComparison.Ordinal))
+                return "music/" + key.Substring(voicePrefix.Length);
+            if(key.StartsWith(assetsPrefix, StringComparison.Ordinal))
+                return "music/" + key.Substring(assetsPrefix.Length);
+            return key;
+        }
+        static string ImageResourcePath(string key){
+            const string assetsPrefix = "assets/";
+            if(!key.StartsWith(assetsPrefix, StringComparison.Ordinal))
+                return key;
+
+            string assetName = key.Substring(assetsPrefix.Length);
+            if(assetName.StartsWith("kaiju_", StringComparison.Ordinal))
+                return "item/" + assetName;
+            if(assetName.StartsWith("mecha", StringComparison.Ordinal))
+                return "stand/" + assetName;
+            return "cg/" + assetName;
+        }
         void Play(string key){
             if(!sound)return;
-            var clip=Resources.Load<AudioClip>(key);
+            var clip=Resources.Load<AudioClip>(AudioResourcePath(key));
             if(clip!=null)audioSource.PlayOneShot(clip);
         }
         void Voice(Board b, int t){
@@ -594,7 +615,10 @@ namespace MonsterPuzzle {
             [st]+".png";
         }
         void Image(Rect r, string key){
-            var tex=Resources.Load<Texture2D>(key.Substring(0, key.LastIndexOf('.')));
+            string resourcePath = ImageResourcePath(key);
+            int extension = resourcePath.LastIndexOf('.');
+            if(extension >= 0)resourcePath = resourcePath.Substring(0, extension);
+            var tex=Resources.Load<Texture2D>(resourcePath);
             if(tex!=null)GUI.DrawTexture(r, tex, ScaleMode.ScaleToFit);
             else GUI.Box(r, key);
         }
