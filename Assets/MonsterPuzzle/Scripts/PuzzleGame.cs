@@ -819,7 +819,7 @@ namespace MonsterPuzzle {
             }
             if(scene>=0&&scene<3){
                 GUI.Box(new Rect(250, 130, 600, 590), "⚔ 討伐完了！");
-                string key="assets/scenes/scene_char"+(hero+1).ToString("00")+"_"+PuzzleData.Keys[bossStage]+"_"+new[]{
+                string key="assets/scenes/scene_char"+(hero+1).ToString("00")+"_"+PuzzleData.Keys[bossStage % PuzzleData.Keys.Length]+"_"+new[]{
                     "start", "mid", "after"
                 }
                 [scene]+".jpg";
